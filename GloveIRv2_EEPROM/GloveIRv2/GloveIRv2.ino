@@ -142,7 +142,7 @@ void sendCode(int codeIndex) {
 void loop() {
   if (Serial.available()) {
     programCode = Serial.parseInt();
-    if (programCode > 0 && programCode < COUNT) {
+    if (programCode >= 0 && programCode < COUNT) {
       processCommand(programCode);
     }
     displayMenu();
