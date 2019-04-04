@@ -23,13 +23,13 @@ IRsend mySender;
 
 // Include a receiver either this or IRLibRecvPCI or IRLibRecvLoop
 #include <IRLibRecv.h>
-IRrecv myReceiver(A0); //pin number for the receiver
+IRrecv myReceiver(12); //pin number for the receiver
 
 const int COUNT = 4;
 int programCode = 0;
 const String vinger[COUNT] = {"Zeigefinger", "Mittelfinger", "Ringfinger", "kleiner Finger"};
 
-const int INPUTS[COUNT] = {13, 12, 11, 10};
+const int INPUTS[COUNT] = {8, 9, 10, 11};
 const int BUTTON = 2;
 
 
@@ -43,11 +43,6 @@ uint8_t codeBits[COUNT] = {0};      // The length of the code in bits
 bool gotOne, gotNew;
 
 void setup() {
-  digitalWrite(A2, HIGH);
-  digitalWrite(A1, LOW);
-  pinMode(A1, OUTPUT);
-  pinMode(A2, OUTPUT);
-
   Serial.begin(9600);
   pinMode(BUTTON, INPUT_PULLUP);
 
